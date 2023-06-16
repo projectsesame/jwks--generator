@@ -23,3 +23,13 @@ jobs:
           registry: release.daocloud.io
           username: ${{ secrets.DAOCLOUD_REGISTRY_USERNAME }}
           password: ${{ secrets.DAOCLOUD_REGISTRY_PWD }}
+    
+      - name: Get Hash
+        id: hash
+        run: echo "${{ github.sha }}"
+
+      - name: "Build and Push"
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          tags: release.daocloud.io/skoala/enovy-remote-jwks-go:${{ github.sha }}
