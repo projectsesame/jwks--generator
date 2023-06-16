@@ -32,4 +32,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: release.daocloud.io/skoala/enovy-remote-jwks-go:${{ github.sha }}
+          tags: release.daocloud.io/skoala/jwks-generator:${{ github.sha }}
